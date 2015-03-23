@@ -1,0 +1,87 @@
+body{
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+
+#container{
+	margin: 25px 50px auto;
+	border: 1px solid #000;
+	min-width: 405px;
+}
+
+#main-header{
+	height: 40px;
+	border-bottom: 1px solid #000;
+	display: block;
+	box-sizing: border-box;
+}
+
+#search-header, #searching, #search-no-result, #twitch-streams, #search-could-not-connect{
+	display: none;
+}
+
+#search-header{
+	overflow: hidden;
+}
+
+#total-results-container{
+	margin-top: 5px;
+	margin-left: 10px;
+	float: left;
+}
+
+#search-page-nav{
+	float: right;
+	margin-right: 10px;
+}
+
+#twitch-search{
+	display: block;
+	margin: 30px 10px 10px;
+}
+
+#twitch-search > input{
+	margin: 0 10px;
+}
+
+#twitch-streams{
+	list-style: none;
+}
+
+#twitch-streams > li{
+	cursor: pointer;
+	margin: 10px 0;
+}
+
+#twitch-streams > li > div.stream-thumb{
+	display: inline-block;
+	vertical-align: top;
+	width: 320px;
+	height: 180px;
+}
+
+#twitch-streams > li > div.stream-content{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 10px;
+	width: 320px;
+}
+
+#twitch-streams > li > div.stream-content > h1{
+	margin: 0;
+}
+
+#twitch-streams > li > div.stream-content > div, #twitch-streams > li > div.stream-content > p{
+	margin: 5px 0 0;
+}
+
+@media screen and (max-width: 920px) {
+	#container{
+		width: 405px;
+		margin: 0 auto;
+	}
+}
+
+#search-pre, #searching, #search-no-result, #search-could-not-connect{
+	margin: 0 auto;
+	text-align: center;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Twitch Search</title>
+		<link rel="stylesheet" type="text/css" href="search.css"/>
+	</head>
+	<body>
+		<div id="container">
+			<header id = "main-header">
+				<form id="twitch-search">
+					<input type="text" placeholder="Search query..." "name="twitch-search" id="twitch-search-text" /><input type="submit" value="Search" />
+				</form>
+			</header>
+			<section>
+				<header id="search-header">
+					<span id="total-results-container">Total results: <span id="total-results"></span></span>
+					<nav id="search-page-nav">
+						<a id="page-prev" href="#">Prev</a>
+						<span id="page-count">0</span> / <span id="page-total">0</span>
+						<a id="page-next" href="#">Next</a>
+					</nav>
+				</header>
+				<div id="search-pre">Please search for something using the textbox above</div>
+				<div id="searching">Searching...</div>
+				<div id="search-no-result">No results</div>
+				<div id="search-could-not-connect">Could not connect</div>
+				<ul id="twitch-streams">
+				</ul>
+			</section>
+			<script type="text/javascript" src="search.js"></script>
+		</div>
+	</body>
+</html>
