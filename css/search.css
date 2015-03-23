@@ -85,3 +85,16 @@ body{
 	margin: 0 auto;
 	text-align: center;
 }
+
+#page-prev, #page-next{
+	background: url('img/sprite.png') no-repeat scroll 0 2px;
+	display: inline-block;
+    overflow: hidden;
+    width: 0;
+    height: 14px;
+    padding-left: 10px;
+}
+
+#page-next{
+	background-position: -13px 2px;
+}

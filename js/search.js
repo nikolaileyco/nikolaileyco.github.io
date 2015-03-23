@@ -174,7 +174,7 @@ var Search = function(options){
 
 			//let's set next and prev
 			if (response._links.next != null && $this.currentPage < totalPages){
-				$this.nextPageElem.style = 'display: inline';
+				$this.nextPageElem.style = '';
 				$this.nextPageElem.href = response._links.next;
 			}else{
 				$this.nextPageElem.style = 'display: none';
@@ -182,7 +182,7 @@ var Search = function(options){
 			}
 
 			if (response._links.prev != null){
-				$this.prevPageElem.style = 'display: inline';
+				$this.prevPageElem.style = '';
 				$this.prevPageElem.href = response._links.prev;
 			}else{
 				$this.prevPageElem.style = 'display: none';
