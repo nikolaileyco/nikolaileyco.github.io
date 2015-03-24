@@ -67,11 +67,19 @@ var Search = function(options){
 	    	e.preventDefault();
 	    }
 
+	    /*
+	    wasn't working in chrome, switching other method
 		$this.searchPreElem.style = 'display: none';
 		$this.searchNoResultElem.style = 'display: none';
 		$this.searchNoConnectElem.style = 'display: none';
 		$this.twitchStreamListElem.style = 'display: none';
 	    $this.searchingElem.style = 'display: block';
+	    */
+	    $this.searchPreElem.style.display = 'none';
+		$this.searchNoResultElem.style.display = 'none';
+		$this.searchNoConnectElem.style.display = 'none';
+		$this.twitchStreamListElem.style.display = 'none';
+	    $this.searchingElem.style.display = 'block';
 
     	$this.doSearch($this.searchTextElem.value)
     
@@ -118,7 +126,9 @@ var Search = function(options){
 		document.getElementsByTagName('head')[0].appendChild(script);
 		$this.beginErrorCheck();
 
-		$this.searchPreElem.style = 'display: none';
+		//$this.searchPreElem.style = 'display: none';
+		$this.searchPreElem.style.display = 'none';
+
 		//reset page number
 		$this.currentPage = 1;
 	};
@@ -126,12 +136,20 @@ var Search = function(options){
 	//let's add a timeout, in case it doesn't connect
 	this.beginErrorCheck = function(){
 	    $this.failureTimeout = setTimeout(function(){
+	    	/*
 			$this.searchNoConnectElem.style = 'display: block';
 			$this.searchHeaderElem.style = 'display: none';
 			$this.searchPreElem.style = 'display: none';
 			$this.searchNoResultElem.style = 'display: none';
 			$this.twitchStreamListElem.style = 'display: none';
 		    $this.searchingElem.style = 'display: none';
+		    */
+		    $this.searchNoConnectElem.style.display = 'block';
+			$this.searchHeaderElem.style.display = 'none';
+			$this.searchPreElem.style.display = 'none';
+			$this.searchNoResultElem.style.display = 'none';
+			$this.twitchStreamListElem.style.display = 'none';
+		    $this.searchingElem.style.display = 'none';
     	}, 2000); //2 seconds sounds reasonable, but I don't know enough about the twitch api to say
 	}
 
@@ -151,16 +169,27 @@ var Search = function(options){
 
 	this.populate = function(response){
 		clearTimeout($this.failureTimeout);
-		$this.searchingElem.style = 'display: none';
+		//$this.searchingElem.style = 'display: none';
+		$this.searchingElem.style.display = 'none';
 		if (response._total == 0){
+			/*
 			$this.searchNoResultElem.style = 'display: block';
 			$this.twitchStreamListElem.style = 'display: none';
 			$this.searchHeaderElem.style = 'display: none';
+			*/
+			$this.searchNoResultElem.style.display = 'block';
+			$this.twitchStreamListElem.style.display = 'none';
+			$this.searchHeaderElem.style.display = 'none';
 		}
 		else{
+			/*
 			$this.searchNoResultElem.style = 'display: none';
 			$this.twitchStreamListElem.style = 'display: block';
 			$this.searchHeaderElem.style = 'display: block';
+			*/
+			$this.searchNoResultElem.style.display = 'none';
+			$this.twitchStreamListElem.style.display = 'block';
+			$this.searchHeaderElem.style.display = 'block';
 
 			//let's set our pages
 			var totalPages = Math.ceil(response._total/5);
@@ -177,7 +206,8 @@ var Search = function(options){
 				$this.nextPageElem.style = '';
 				$this.nextPageElem.href = response._links.next;
 			}else{
-				$this.nextPageElem.style = 'display: none';
+				//$this.nextPageElem.style = 'display: none';
+				$this.nextPageElem.style.display = 'none';
 				$this.nextPageElem.href = "#";
 			}
 
@@ -185,7 +215,8 @@ var Search = function(options){
 				$this.prevPageElem.style = '';
 				$this.prevPageElem.href = response._links.prev;
 			}else{
-				$this.prevPageElem.style = 'display: none';
+				//$this.prevPageElem.style = 'display: none';
+				$this.prevPageElem.style.display = 'none';
 				$this.prevPageElem.href = "#";
 			}
 
